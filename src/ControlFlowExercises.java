@@ -5,31 +5,31 @@ public class ControlFlowExercises {
 //a. While=================
 //        int i = 5;
 //        while (i <= 15){
-//            System.out.println("i is: " + i);
+//            System.out.print(i + " ");
 //            i++;
 //
 //        }
 
 //        b. Do While====================
-
+//
 //        int num = 0;
 //        do {
-//            System.out.println("Count is: " + num);
+//            System.out.println(num);
 //            num += 2;
 //        } while (num <= 100);
-
+//
 //        int num = 100;
 //        do {
-//            System.out.println("Count is: " + num);
+//            System.out.println(num);
 //            num -= 5;
-//        } while (num >= 0);
+//        } while (num >= -10);
 
 //        int num = 2;
 //        do {
 //            num *= num;
-//            System.out.println("Count is: " + num);
+//            System.out.println(num);
 //        } while (num <= 10000);
-//
+
 //        long num = 2;
 //        System.out.println(num);
 //        do {
@@ -38,9 +38,9 @@ public class ControlFlowExercises {
 //        } while (num <= 1000000);
 
 //==============C. =====FOR Loops
-
+//
 //        for(int i=5; i<=15; i++){
-//            System.out.println("Count is: " + i);
+//            System.out.print(i + " ");
 //        }
 
 //
@@ -51,11 +51,11 @@ public class ControlFlowExercises {
 
 
 //        for(int i=100; i>=0; i -= 5){
-//            System.out.println("Count is: " + i);
+//            System.out.println(i);
 //
 //        }
-
-//        for(int i=2; i<=10000; i *= i){
+//
+//        for(long i=2; i<=1000000; i *= i){
 //
 //            System.out.println("Count is: " + i);
 //        }
@@ -67,20 +67,18 @@ public class ControlFlowExercises {
 ////        For numbers which are multiples of both three and five print “FizzBuzz”.
 //
 //
-//        }
+
 //        String Fizz = " ", Buzz = " ";
-//        for(int i=1; i<=100; i++)
-//        {
-//            if (i % 15 == 0){
-//            System.out.println("FizzzzzzBuzzzzz is " + " " + i);
-//        }
-//            else if (i % 3 == 0) {
-//                System.out.println("Fizz is: " + Fizz + " " + i);
+//        for(int i=1; i<=100; i++) {
+//            if (i % 15 == 0) {
+//                System.out.println("FizzzzzzzzzBuzzzzzzzzzz is " + " " + i);
+//            } else if (i % 3 == 0) {
+//                System.out.println("Fizzzzzzz is: " + Fizz + " " + i);
+//            } else if (i % 5 == 0) {
+//                System.out.println("Buzzz is: " + Buzz + " " + i);
+//            } else {
+//                System.out.println(i);
 //            }
-//            else if (i % 5 == 0){
-//                System.out.println("Buzzzzzzz is: " + Buzz + " " + i);
-//            }
-//
 //        }
 
 //====+==+=+=+==+==+========3 Display a table of powers------
@@ -89,7 +87,7 @@ public class ControlFlowExercises {
 //        Ask if the user wants to continue.
 //        Assume that the user will enter valid data.
 //        Only continue if the user agrees to.
-
+//
 //        String userQ;
 //
 //        do {
@@ -97,7 +95,6 @@ public class ControlFlowExercises {
 //            Scanner scan = new Scanner(System.in);
 //
 //            System.out.println("What number would you like to go up to? ");
-//
 //
 //            String userInput = scan.nextLine();
 //            double input = Double.parseDouble(userInput);
@@ -107,7 +104,7 @@ public class ControlFlowExercises {
 //
 //            for (int i = 1; i <= input; i++) {
 //                if (input != (' ')) {
-//                    System.out.println(i + "      |   " + (i * i) + "     |   " + (i * i * i));
+//                    System.out.print(i + "      |   " + (i * i) + "     |   " + (i * i * i));
 //                }
 //            }
 //            System.out.println("Do you want to enter another number?: Yes or No");
@@ -147,7 +144,7 @@ public class ControlFlowExercises {
 //        do {
 //
 //            Scanner scan = new Scanner(System.in);
-//            System.out.println("What is your weekday? ");
+//            System.out.println("What is your grade? ");
 //
 //            String userGrade = scan.nextLine();
 //            double weekday = Double.parseDouble(userGrade);
@@ -212,18 +209,18 @@ public class ControlFlowExercises {
 //        } while (askUser.toLowerCase().startsWith("y"));
 
 //        2. Prompt the user for an integer. Output whether or not the number is prime.
-
-        int userNumber;
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a number: ");
-        userNumber = sc.nextInt();
-
-        for (int i = 3; i*i < userNumber; i+=2) {
-            if (userNumber % 2 == 0) {
-                System.out.println(userNumber + " Not a Prime Number");
-        }
-            System.out.println(userNumber + " Prime Number!!");
-        }
+//
+//        int userNumber;
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Enter a number: ");
+//        userNumber = sc.nextInt();
+//
+//        for (int i = 3; i*i < userNumber; i+=2) {
+//            if (userNumber % 2 == 0) {
+//                System.out.println(userNumber + " Not a Prime Number");
+//        }
+//            System.out.println(userNumber + " Prime Number!!");
+//        }
 
 
 
