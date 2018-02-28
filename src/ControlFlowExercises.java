@@ -221,10 +221,10 @@ public class ControlFlowExercises {
         for (int i = 3; i*i < userNumber; i+=2) {
             if (userNumber % 2 == 0) {
                 System.out.println(userNumber + " Not a Prime Number");
-        } else {
+        }
             System.out.println(userNumber + " Prime Number!!");
         }
-    }
+
 
 
 
