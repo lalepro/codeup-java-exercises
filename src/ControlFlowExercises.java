@@ -83,21 +83,57 @@ public class ControlFlowExercises {
 
 //====+==+=+=+==+==+========3 Display a table of powers------
 //        Prompt the user to enter an integer.
-//                Display a table of squares and cubes from 1 to the value entered.
+//        Display a table of squares and cubes from 1 to the value entered.
 //        Ask if the user wants to continue.
 //        Assume that the user will enter valid data.
 //        Only continue if the user agrees to.
-        //        int userNumber;
-//        Scanner sc = new Scanner(System.in);
-//        System.out.print("Enter a number: ");
-//        userNumber = sc.nextInt();
-//        System.out.println("User entered: --> \"" + userNumber + "\" <--");
 
-        int userInput;
+
+//        Scanner scan = new Scanner(System.in);
+//
+//        System.out.println("What number would you like to go up to? ");
+//
+//
+//        String userInput = scan.next();
+//        double input = Double.parseDouble(userInput);
+//
+//        System.out.println("number | Squared | cubed");
+//        System.out.println("------ | --------| ------");
+//
+//        for(int i = 1; i<= 10; i++) {
+//            if (userInput != " ") {
+//                System.out.println(input + "    |   " + (input * input) + "    |   " + (input * input * input));
+//            }
+//        }
+
+//        4. Grades into letter grades
+
         Scanner scan = new Scanner(System.in);
-        System.out.println("What number would you like to go up to? ");
-        userInput = scan.nextInt();
-        System.out.format(userInput);
+        System.out.println("What is your grade? ");
+        String userGrade = scan.nextLine();
+        double grade = Double.parseDouble(userGrade);
+
+        for (int i = 1; i <= 1; i++) {
+            if (grade == 99 || grade == 100) {
+                System.out.println("A+: 99-100");
+            } else if (grade >= 88 && grade <= 98) {
+                System.out.println("A: 88-98");
+            } else if (grade >= 80 && grade <= 87) {
+                System.out.println("B: 80-87");
+            } else if (grade >= 67 && grade <= 79) {
+                System.out.println("C: 79-67");
+            } else if (grade >= 60 && grade <= 66) {
+                System.out.println("D:60-66");
+            } else if(grade <= 59 && grade >= 0) {
+                System.out.println("F: 59 or below");
+            }
+        }
+
+
+
+
+
+
 
 
     }
