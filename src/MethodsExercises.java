@@ -2,15 +2,21 @@ import java.util.Scanner;
 
 public class MethodsExercises {
     public static void main(String[] args) {
-        addition(5, 7);
-        subtraction(4, 9);
-        multiplication(8, 3);
-        division(5, 3);
-        mathIF(98, 3);
-        modulus(100, 5);
-        getInteger(1, 10);
+//        addition(5, 7);
+//        subtraction(4, 9);
+//        multiplication(8, 3);
+//        division(5, 3);
+//        mathIF(98, 3);
+//        modulus(100, 5);
+        System.out.println(calculateFactorial(1,10));
+
+//        getInteger(1, 10);
 
         fact(getInteger(1, 10));
+
+//        rollDice();
+
+
 
 
     }
@@ -52,8 +58,8 @@ public class MethodsExercises {
 //======================FACTORIAL ============
 
     public static int getInteger(int min, int max) {
-        String question = "Enter a number between 1 and 10";
-        System.out.println(question);
+        String question = "Enter a number between 1 and 10: ";
+        System.out.print(question);
         Scanner sc = new Scanner(System.in);
         int userInput = sc.nextInt();
 //        System.out.println(userInput);
@@ -64,93 +70,125 @@ public class MethodsExercises {
         return userInput;
     }
 
+//    Original solution: gives results but doesn't show path
+////
 //    public static long fact(long userInput) {
-//        long total = 1;
-//        for (long i=userInput; i >=1; i--){
-//            total *= i;
+//        long answer = userInput;
+//        String output = " ";
+//        output += answer + "! = " + answer;
+//
+//        for (long i = userInput -1; i >=1; i--){
+//            output += " x " + i;
+//            System.out.println(answer + output + );
+//            userInput *= i;
 //        }
-//        System.out.println(userInput + "! = " + total);
-//        return total;
+//        System.out.println(output);
+//        return userInput;
 //    }
 
+////
+//    public static long fact(long userInput) {
+//        String answer = userInput + "! = ";
+////        long total = userInput;
+////        String output = " ";
+//        answer += userInput;
+//        for (long i = userInput - 1; i >= 1; i--) {
+//            long total = userInput * i;
+//            answer += " x " + i;
+//            System.out.println(answer + " = " + total);
+//            userInput *= i;
+//        }
+//        System.out.println("Your a genius!");
+//        return userInput;
+//    }
+//
+//    public static long fact(long userInput) {
+//        String answer = userInput + "! = ";
+////        long total = userInput;
+////        String output = " ";
+//        answer += userInput;
+//        String solution;
+//
+//        for (long i = userInput - 1; i >= 1; i--) {
+//            long total = userInput * i;
+//            answer += " x " + i;
+//            solution = answer + " = " + total;
+////            System.out.println(solution);
+//            userInput *= i;
+//        }
+//        System.out.println(solution);
+//        return userInput;
+//    }
+//
+    public static int calculateFactorial(int one, int ten) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer between one & ten: ");
+        int userInput = scanner.nextInt();
+//        int result = 1;
+        String teddy = userInput + "! = ";
+        teddy += userInput;
+//        do {
+        if (userInput >= one && userInput <= ten) {
+            for (int i = userInput - 1; i >= 1; i--) {
+                String userChoice = userInput + "! = ";
+                userChoice += userInput + i;
+                long total = userInput * i;
+                teddy += " x " + i;
+                System.out.println(teddy + " = " + total);
+                userInput *= i;
 
+            }
+        } else {
+            return calculateFactorial(one, ten);
+        }
+//            System.out.print("Continue? [y/n]");
+//            userChoice = scanner.next();
+//
+//        } while (userChoice.toLowerCase().startsWith("y"));
+        return userInput;
+    }
     public static long fact(long userInput) {
-        String answer = userInput + "! ";
-        long total = userInput;
-        String output = " ";
-        output += answer + "! = " + userInput;
+        String answer = userInput + "! = ";
+//        long total = userInput;
+//        String output = " ";
+        answer += userInput;
         for (long i = userInput - 1; i >= 1; i--) {
-            output += " x " + i;
-            System.out.println(output);
+            long total = userInput * i;
+            answer += " x " + i;
+            System.out.println(answer + " = " + total);
             userInput *= i;
         }
-        System.out.println(output += " = " + userInput);
+        System.out.println("Your a genius!");
         return userInput;
     }
 
-
-
 //======================#4====================
-//public class PairOfDice {
-//
-//    private int die1;   // Number showing on the first die.
-//    private int die2;   // Number showing on the second die.
-//
-//    public PairOfDice() {
-//        // Constructor.  Rolls the dice, so that they initially
-//        // show some random values.
-//        roll();  // Call the roll() method to roll the dice.
-//    }
-//
-//    public void roll() {
-//        // Roll the dice by setting each of the dice to be
-//        // a random number between 1 and 6.
-//        die1 = (int)(Math.random()*6) + 1;
-//        die2 = (int)(Math.random()*6) + 1;
-//    }
-//
-//    public int getDie1() {
-//        // Return the number showing on the first die.
-//        return die1;
-//    }
-//
-//    public int getDie2() {
-//        // Return the number showing on the second die.
-//        return die2;
-//    }
-//
-//    public int getTotal() {
-//        // Return the total showing on the two dice.
-//        return die1 + die2;
-//    }
-//
-//}  // end class PairOfDice
-//
-//    public static void main(String[] args) {
-//
-//        PairOfDice dice;          // A variable that will refer to the dice.
-//        int rollCount;    // Number of times the dice have been rolled.
-//
-//        dice = new PairOfDice();  // Create the PairOfDice object.
-//        rollCount = 0;
-//
-//        /* Roll the dice until they come up snake eyes. */
-//
-//        do {
-//            dice.roll();
-//            System.out.println("The dice come up " + dice.getDie1()
-//                    + " and " + dice.getDie2());
-//            rollCount++;
-//        } while (dice.getTotal() != 2);
-//
-//        /* Report the number of rolls. */
-//
-//        System.out.println("\nIt took " + rollCount + " rolls to get a 2.");
-//
-//    }
-//
-//}
-//// end class RollFor2
+    public static int rollDice() {
+        String userQ;
+        int x;
+        int y;
+
+        do {
+            Scanner sc = new Scanner(System.in);
+            String question = "Please enter the number of sides on your dice: ";
+            System.out.print(question);
+            int userInput = sc.nextInt();
+            sc.nextLine();
+            x = (int) (Math.random() * userInput) + 1;
+            y = (int) (Math.random() * userInput) + 1;
+            System.out.println();
+            System.out.println("The dice come up " +  x + " " + y);
+            System.out.print("Enter another round? Y/N: ");
+            userQ = sc.nextLine();
+        }
+
+
+        while (userQ.toLowerCase().startsWith("y"));
+            return 0;
+
+    }
+
+
 
 
 }
