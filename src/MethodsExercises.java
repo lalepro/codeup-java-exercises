@@ -10,7 +10,7 @@ public class MethodsExercises {
         modulus(100, 5);
         System.out.println(calculateFactorial(1,10));
 
-//        getInteger(1, 10);
+        getInteger(1, 10);
 
         fact(getInteger(1, 10));
 
@@ -71,20 +71,20 @@ public class MethodsExercises {
     }
 
 //    Original solution: gives results but doesn't show path
-////
-//    public static long fact(long userInput) {
-//        long answer = userInput;
-//        String output = " ";
-//        output += answer + "! = " + answer;
 //
-//        for (long i = userInput -1; i >=1; i--){
-//            output += " x " + i;
-//            System.out.println(answer + output + );
-//            userInput *= i;
-//        }
-//        System.out.println(output);
-//        return userInput;
-//    }
+    public static long fact(long userInput) {
+        long answer = userInput;
+        String output = " ";
+        output += answer + "! = " + answer;
+
+        for (long i = userInput -1; i >=1; i--){
+            output += " x " + i;
+//            System.out.println(answer + output);
+            userInput *= i;
+        }
+        System.out.println(output);
+        return 0;
+    }
 
 ////
 //    public static long fact(long userInput) {
@@ -147,20 +147,20 @@ public class MethodsExercises {
 //        } while (userChoice.toLowerCase().startsWith("y"));
         return userInput;
     }
-    public static long fact(long userInput) {
-        String answer = userInput + "! = ";
-//        long total = userInput;
-//        String output = " ";
-        answer += userInput;
-        for (long i = userInput - 1; i >= 1; i--) {
-            long total = userInput * i;
-            answer += " x " + i;
-            System.out.println(answer + " = " + total);
-            userInput *= i;
-        }
-        System.out.println("Your a genius!");
-        return userInput;
-    }
+//    public static long fact(long userInput) {
+//        String answer = userInput + "! = ";
+////        long total = userInput;
+////        String output = " ";
+//        answer += userInput;
+//        for (long i = userInput - 1; i >= 1; i--) {
+//            long total = userInput * i;
+//            answer += " x " + i;
+//            System.out.println(answer + " = " + total);
+//            userInput *= i;
+//        }
+//        System.out.println("Your a genius!");
+//        return userInput;
+//    }
 
 //======================#4====================
 

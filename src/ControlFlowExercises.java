@@ -245,6 +245,8 @@ public class ControlFlowExercises {
 //                this will help you for this bonus...
 //        https://stackoverflow.com/questions/12421444/how-to-format-a-number-0-9-to-display-
 // with-2-digits-its-not-a-date
+        int x = 5;
+        System.out.println(x > 2 ? x < 4 ? 10 : 8 : 7);
 
     }
 }
