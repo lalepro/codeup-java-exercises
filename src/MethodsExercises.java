@@ -2,19 +2,19 @@ import java.util.Scanner;
 
 public class MethodsExercises {
     public static void main(String[] args) {
-//        addition(5, 7);
-//        subtraction(4, 9);
-//        multiplication(8, 3);
-//        division(5, 3);
-//        mathIF(98, 3);
-//        modulus(100, 5);
+        addition(5, 7);
+        subtraction(4, 9);
+        multiplication(8, 3);
+        division(5, 3);
+        mathIF(98, 3);
+        modulus(100, 5);
         System.out.println(calculateFactorial(1,10));
 
 //        getInteger(1, 10);
 
         fact(getInteger(1, 10));
 
-//        rollDice();
+        rollDice();
 
 
 
@@ -163,6 +163,7 @@ public class MethodsExercises {
     }
 
 //======================#4====================
+
     public static int rollDice() {
         String userQ;
         int x;
@@ -187,6 +188,9 @@ public class MethodsExercises {
             return 0;
 
     }
+
+//    ==========================5=====HighLow.class=========================
+
 
 
 
