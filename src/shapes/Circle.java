@@ -3,18 +3,21 @@ package shapes;
 public class Circle {
 
     private double radius;
-    private double Area;
-    private double Circumference;
+    private static int numberOfCircles = 0;
 
     public Circle(double radius) {
         this.radius = radius;
+        numberOfCircles++;
     }
 
     public double getArea() {
-        return Area;
+        return Math.PI * (radius * radius);
     }
 
     public double getCircumference() {
-        return Circumference;
+        return 2 * Math.PI * radius;
+    }
+    public static int getNumberOfCircles(){
+        return numberOfCircles;
     }
 }
