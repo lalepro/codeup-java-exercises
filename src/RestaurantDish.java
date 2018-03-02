@@ -39,4 +39,9 @@ public class RestaurantDish {
     public void setWouldRecommend(Boolean wouldRecommend) {
         this.wouldRecommend = wouldRecommend;
     }
+
+//    public void String sayHello(){
+//        return "Hello";
+//    }
+
 }
