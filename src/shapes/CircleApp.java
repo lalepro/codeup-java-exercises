@@ -1,43 +1,30 @@
 package shapes;
-
 import util.Input;
-
 public class CircleApp {
     public static void main(String[] args) {
-
+        returnNumOfCircles();
+        System.out.println("Inside the Main " + returnNumOfCircles() + " circles.");
+    }
+    public static int returnNumOfCircles() {
         Input uI = new Input();
-        System.out.println("You start with this many circles " + Circle.getNumberOfCircles());
+        System.out.println("Start with " + Circle.getNumberOfCircles() + " circles");
         Circle circle = new Circle(6);
-
-
-
         do {
-
             int num1 = uI.getInt("Enter a number: ");
             circle.setRadius(num1);
-            System.out.println("The Radius is: " + num1);
-            System.out.println("The Area of " + num1 + " is  " + circle.getArea());
-            System.out.println("The Circumference of " + num1 + " is " + circle.getCircumference());
-
-
+//            System.out.println("The Radius is: " + num1);
+//            System.out.println("The Area of " + num1 + " is  " + circle.getArea());
+//            System.out.println("The Circumference of " + num1 + " is " + circle.getCircumference());
+            circle.getNumberOfCircles();
+            System.out.println("Inside Do " + circle.getNumberOfCircles() + " Circles.");
+            circle.getRadius();
         }
-            while (uI.yesNo("Do you want to input a differenct number? y/n"));{
-            if(uI.equals("y")){
-                circle.getNumberOfCircles();
-                System.out.println("TEst" + circle.getNumberOfCircles());
+        while (uI.yesNo("Do you want to input a differenct number? y/n"));
+        {
+            System.out.println("In the While " + circle.getNumberOfCircles() + " circles.");
+        }
+        return circle.getNumberOfCircles();
             }
-            System.out.println("You now have this many circles" + circle.getNumberOfCircles());
-        }
-
-
-
-
-    }
-
-
-
-
-
 
 }
 
