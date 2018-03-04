@@ -93,4 +93,17 @@ public class Input {
         return getDouble(min, max);
     }
 
+//    public double getSum(){
+//        return scanner.nextDouble();
+//    }
+//
+//    public double getSum(){
+//        System.out.println(prompt);
+//        return getSum;
+//    }
+
+    public double getSum(double x, double y) {
+        return x + y;
+    }
+
 }
