@@ -15,7 +15,6 @@ public class Circle {
         numberOfCircles++;
     }
 
-
     public void setUserInput() {
         this.userInput = uI.getDouble("Enter a Number: ");
     }
@@ -46,13 +45,11 @@ public class Circle {
 
     public double userArea(){
         return this.getUserInput() * getArea();
-
-    }
+        }
 
     public double userCircumference(){
         return this.getUserInput() * 2 * Math.PI * radius;
     }
-
 
 
 
