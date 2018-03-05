@@ -14,13 +14,17 @@ public class Input {
     public String getString(){
         return scanner.next();
     }
+
+    public String getNextLine(){
+        return scanner.nextLine();
+    }
 //
-//    public String getString(String prompt){
-//        System.out.println(prompt);
-//        String userInput = scanner.nextLine();
-//        return userInput + " ";
-//
-//    }
+    public String getString(String prompt){
+        System.out.println(prompt);
+        String userInput = scanner.nextLine();
+        return userInput;
+
+    }
 
 //    public boolean yesNo(String prompt){
 //        System.out.println(prompt);
