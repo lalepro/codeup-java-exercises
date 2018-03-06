@@ -1,71 +1,93 @@
 package movies;
-
 import util.Input;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-
 public class MoviesApplication {
     static Movie[] films = MoviesArray.findAll();
-
     public static void main(String[] args) {
-
-
         Input ul = new Input();
         int userInput;
+        System.out.println(
+        "       ________________                              _______________ \n" +
+                "      /                \\                            / /           \\ \\ \n" +
+                "     / /          \\ \\   \\                          |    -    -       \\\n" +
+                "     |                  |                          | /        -   \\  |\n" +
+                "    /                  /                           \\                 \\\n" +
+                "   |      ___\\ \\| | / /                             \\____________  \\  \\\n" +
+                "   |      /           |                             |            \\    | \n" +
+                "   |      |     __    |                             |             \\   \\ \n" +
+                "  /       |       \\   |                             |              \\  | \n" +
+                "  |       |        \\  |                             | ====          | |\n" +
+                "  |       |       __  |                             | (o-)      _   | | \n" +
+                "  |      __\\     (_o) |                             /            \\  | |\n" +
+                "  |     |             |     Heh Heh Movies         /            ) ) | |\n" +
+                "   \\    ||             \\      /    Movies Huh Huh /             ) / | | \n" +
+                "    |   |__             \\    /                \\  |___            - |  | \n" +
+                "    |   |           (*___\\  /                  \\    *'             |  |\n" +
+                "    |   |       _     |    /                    \\  |____           |  |\n" +
+                "    |   |    //_______|                             ####\\          |  |\n" +
+                "    |  /       |_|_|_|___/\\                        ------          |_/  \n" +
+                "     \\|       \\ -         |                        |                | \n" +
+                "      |       _----_______/                        \\_____           | \n" +
+                "      |      /                                          \\           |\n" +
+                "      |_____/                                            \\__________|"
+        );
 
-//        String userNewMovie;
-        do {
-            System.out.println(
-                    "0 - exit\n" +
-                            "1 - view all movies\n" +
-                            "2 - view movies in the Animated category\n" +
-                            "3 - view movies in the Drama category\n" +
-                            "4 - view movies in the Horror category\n" +
-                            "5 - view movies in the Sci-fi category \n" +
-                            "6 - add a movie and category \n" +
-                            "What would you like to do: ");
-
+        do { System.out.println(
+                   " ___________________________\n" +
+                   "| 1 - View ALL Movies       |\n" +
+                   "| 2 - Animated | 3 - Drama  |\n" +
+                   "| 4 - Horror   | 5 - Sci-fi |\n" +
+                   "| 6 - Musical  | 7 - Comedy |\n" +
+                   "| 8 - ADD Movie| 0 - EXIT   |\n" +
+                   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"  +
+                   "|   ENTER CATEGORY NUMBER   |\n" +
+                   " ---------------------------");
             userInput = ul.getInt();
             ul.getNextLine();
-
             switch (userInput) {
-
-                case 1:
-                    for (Movie allMovies : films) {
-                        System.out.println(allMovies.getName() + " -- " + allMovies.getCategory());
-                    }
+                case 1: allMovies();
                     break;
-                case 2:
-                    getCategory("animated");
+                case 2: getCategory("Animated");
                     break;
-                case 3:
-                    getCategory("drama");
+                case 3: getCategory("Drama");
                     break;
-                case 4:
-                    getCategory("horror");
+                case 4: getCategory("Horror");
                     break;
-                case 5:
-                    getCategory("scifi");
+                case 5: getCategory("Scifi");
                     break;
-                case 6:
-                    addMovie();
-
+                case 6: getCategory("Musical");
+                    break;
+                case 7: getCategory("Comedy");
+                    break;
+                case 8: addMovie();
             }
-
-
         } while (userInput != 0);
-        System.out.println("Thank you");
+        System.out.println(
+                        "                          (####)\n" +
+                        "                        (#######)\n" +
+                        "                      (#########)\n" +
+                        "                     (#########)\n" +
+                        "                    (#########)\n" +
+                        "                   (#########)\n" +
+                        "   __&__          (#########)\n" +
+                        "  /     \\        (#########)   |\\/\\/\\/|     /\\ /\\  /\\               /\\\n" +
+                        " |       |      (#########)    |      |     | V  \\/  \\---.    .----/  \\----.\n" +
+                        " |  (o)(o)       (o)(o)(##)    |      |      \\_        /       \\          /\n" +
+                        " C   .---_)    ,_C     (##)    | (o)(o)       (o)(o)  <__.   .--\\ (o)(o) /__.\n" +
+                        "  | |.___|    /___,   (##)     C      _)     _C         /     \\     ()     /\n" +
+                        "  |  \\__/       \\     (#)       | ,___|     /____,   )  \\      >   (C_)   <\n" +
+                        "  /_____\\        |    |         |   /         \\     /----'    /___\\____/___\\\n" +
+                        " /_____/ \\       OOOOOO        /____\\          ooooo             /|    |\\\n" +
+                        "/         \\     /      \\      /      \\        /     \\           /        \\"
+        );
 
     }
-
-    public static void getCategory(String cat) {
-        for (Movie catMovies : films) {
-            if (catMovies.getCategory().equals(cat)) {
-                System.out.println("------------------");
-                System.out.println("Name: " + catMovies.getName() + "Category: " + catMovies.getCategory());
-            }
-        }
+    public static void allMovies(){
+        for(Movie allMovies : films)
+        {System.out.println(
+                " ________________________________________________________________\n"+
+                "| Title: "+ allMovies.getName() + " | Genre: " + allMovies.getCategory());}
     }
 
     public static void addMovie() {
@@ -79,10 +101,71 @@ public class MoviesApplication {
         int lastIndex = newMovies.length -1;
         newMovies[lastIndex] = newMovie;
         films = newMovies;
+        }
 
+    public static void getCategory(String genre) {
+        for (Movie genreMovies : films) {
+            if (genreMovies.getCategory().equalsIgnoreCase(genre)) {
+                System.out.println(" -------------------------------------------------------------------");
+                System.out.println("|Title: " + genreMovies.getName() + " ==> Genre: " + genreMovies.getCategory());
+            }
+        }
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -117,7 +200,6 @@ public class MoviesApplication {
 //                }
 //
 //            } else if (userInput == 6) {
-//
 //                String newfilm = ul.getString("Enter new film: ");
 //                String newCategory = ul.getString("Enter new category: ");
 //                Movie newMovie = new Movie(newfilm, newCategory);
