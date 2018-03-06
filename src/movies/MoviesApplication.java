@@ -34,18 +34,19 @@ public class MoviesApplication {
         );
 
         do { System.out.println(
-                   " ___________________________\n" +
-                   "| 1 - View ALL Movies       |\n" +
-                   "| 2 - Animated | 3 - Drama  |\n" +
-                   "| 4 - Horror   | 5 - Sci-fi |\n" +
-                   "| 6 - Musical  | 7 - Comedy |\n" +
-                   "| 8 - ADD Movie| 0 - EXIT   |\n" +
-                   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"  +
-                   "|   ENTER CATEGORY NUMBER   |\n" +
-                   " ---------------------------");
+                   " _____________________________\n" +
+                   "| 1 - View ALL | 2 - Animated |\n" +
+                   "| 3 - Drama    | 4 - Horror   |\n" +
+                   "| 5 - Sci-fi   | 6 - Musical  |\n" +
+                   "| 7 - Comedy   | 8 - ADD      |\n" +
+                   "| 9 - Delete   | 10- Rate 1-5 |\n" +
+                   "| 11- Edit     | 12 - Exit    |\n" +
+                   " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"  +
+                   "|   ENTER CATEGORY NUMBER     |\n" +
+                   " ----------------------------");
             userInput = ul.getInt();
             ul.getNextLine();
-            displayMovies(userInputgit );
+            displayMovie(userInput);
         } while (userInput != 0);
         System.out.println(
                         "                          (####)\n" +
@@ -68,10 +69,10 @@ public class MoviesApplication {
 
     }
     public static void allMovies(){
-        for(Movie allMovies : films)
+        for(Movie allMovie : films)
         {System.out.println(
                 " ________________________________________________________________\n"+
-                "| Title: "+ allMovies.getName() + " | Genre: " + allMovies.getCategory());}
+                "| Title: "+ allMovie.getName() + " | Genre: " + allMovie.getCategory());}
     }
 
     public static void addMovie() {
@@ -81,22 +82,22 @@ public class MoviesApplication {
         Movie newMovie = new Movie(newfilm, newCategory);
 //        ArrayList<Movie> filmsArray = new ArrayList<>();
 //        filmsArray.add(newMovie);
-        Movie[] newMovies =Arrays.copyOf(films, films.length + 1);
-        int lastIndex = newMovies.length -1;
-        newMovies[lastIndex] = newMovie;
-        films = newMovies;
+        Movie[] addMovie =Arrays.copyOf(films, films.length + 1);
+        int lastIndex = addMovie.length -1;
+        addMovie[lastIndex] = newMovie;
+        films = addMovie;
         }
 
     public static void getCategory(String genre) {
-        for (Movie genreMovies : films) {
-            if (genreMovies.getCategory().equalsIgnoreCase(genre)) {
+        for (Movie genreMovie : films) {
+            if (genreMovie.getCategory().equalsIgnoreCase(genre)) {
                 System.out.println(" -------------------------------------------------------------------");
-                System.out.println("|Title: " + genreMovies.getName() + " ==> Genre: " + genreMovies.getCategory());
+                System.out.println("|Title: " + genreMovie.getName() + " ==> Genre: " + genreMovie.getCategory());
             }
         }
     }
 
-    public static void displayMovies(int userInput) {
+    public static void displayMovie(int userInput) {
         switch (userInput) {
             case 1:
                 allMovies();
@@ -121,7 +122,36 @@ public class MoviesApplication {
                 break;
             case 8:
                 addMovie();
+                break;
+            case 9:
+                deleteMovie();
+                break;
+//          case 10:
+//              rateMovie():
+//              break;
+//            case 11:
+//                editMovie();
+//                break;
+            case 12:
+                System.exit(12);
+            default:
+                System.out.println("Error: we should never get here");
+
+
         }
+    }
+
+//   ================ working on bonuses from Slack=========
+
+    public static void deleteMovie() {
+        Input ul = new Input();
+        String eraseFilm = ul.getString("Remove which Movie?  ");
+        String eraseCategory = ul.getString("What is the category? ");
+        Movie removeMovie = new Movie(eraseFilm, eraseCategory);
+        Movie[] deleteMovie = Arrays.copyOf(films, films.length - 1);
+        int lastIndex = deleteMovie.length -1;
+        deleteMovie[lastIndex] = removeMovie;
+        films = deleteMovie;
     }
 }
 
