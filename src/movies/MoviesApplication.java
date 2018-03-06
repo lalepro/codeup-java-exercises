@@ -45,23 +45,7 @@ public class MoviesApplication {
                    " ---------------------------");
             userInput = ul.getInt();
             ul.getNextLine();
-            switch (userInput) {
-                case 1: allMovies();
-                    break;
-                case 2: getCategory("Animated");
-                    break;
-                case 3: getCategory("Drama");
-                    break;
-                case 4: getCategory("Horror");
-                    break;
-                case 5: getCategory("Scifi");
-                    break;
-                case 6: getCategory("Musical");
-                    break;
-                case 7: getCategory("Comedy");
-                    break;
-                case 8: addMovie();
-            }
+            displayMovies(userInputgit );
         } while (userInput != 0);
         System.out.println(
                         "                          (####)\n" +
@@ -109,6 +93,34 @@ public class MoviesApplication {
                 System.out.println(" -------------------------------------------------------------------");
                 System.out.println("|Title: " + genreMovies.getName() + " ==> Genre: " + genreMovies.getCategory());
             }
+        }
+    }
+
+    public static void displayMovies(int userInput) {
+        switch (userInput) {
+            case 1:
+                allMovies();
+                break;
+            case 2:
+                getCategory("Animated");
+                break;
+            case 3:
+                getCategory("Drama");
+                break;
+            case 4:
+                getCategory("Horror");
+                break;
+            case 5:
+                getCategory("Scifi");
+                break;
+            case 6:
+                getCategory("Musical");
+                break;
+            case 7:
+                getCategory("Comedy");
+                break;
+            case 8:
+                addMovie();
         }
     }
 }
