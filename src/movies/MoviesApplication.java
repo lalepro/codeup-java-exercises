@@ -2,10 +2,13 @@ package movies;
 import util.Input;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
+
 public class MoviesApplication {
     static Movie[] films = MoviesArray.findAll();
+    static Input ul = new Input();
     public static void main(String[] args) {
-        Input ul = new Input();
+//        Input ul = new Input();
         int userInput;
         System.out.println(
         "       ________________                              _______________ \n" +
@@ -40,7 +43,8 @@ public class MoviesApplication {
                    "| 5 - Sci-fi   | 6 - Musical  |\n" +
                    "| 7 - Comedy   | 8 - ADD      |\n" +
                    "| 9 - Delete   | 10- Rate 1-5 |\n" +
-                   "| 11- Edit     | 12 - Exit    |\n" +
+                   "| 11- Edit     | 12 - Search  |\n" +
+                   "| 13 - Exit    |              |\n" +
                    " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"  +
                    "|   ENTER CATEGORY NUMBER     |\n" +
                    " ----------------------------");
@@ -126,19 +130,31 @@ public class MoviesApplication {
             case 9:
                 deleteMovie();
                 break;
-//          case 10:
-//              rateMovie():
-//              break;
-//            case 11:
-//                editMovie();
-//                break;
+          case 10:
+                rateMovie();
+              break;
+            case 11:
+                editMovie();
+                break;
             case 12:
-                System.exit(12);
+                searchMovie();
+                break;
+            case 13:
+                System.exit(13);
             default:
                 System.out.println("Error: we should never get here");
 
 
         }
+    }
+
+    private static void searchMovie() {
+    }
+
+    private static void editMovie() {
+    }
+
+    private static void rateMovie() {
     }
 
 //   ================ working on bonuses from Slack=========
@@ -153,6 +169,20 @@ public class MoviesApplication {
         deleteMovie[lastIndex] = removeMovie;
         films = deleteMovie;
     }
+//
+//    public static void addRatings(Movie[] movies){
+//        Random rng = new Random();
+//        for(Movie movie : movies){
+//            movie.setRating(rng.nextInt(10));
+//        }
+//    }
+
+//    public static Movie[] findAll(){
+//        Movie[] movies = generateMovies(); rename findAll() to generateMovies
+//        addRatings();
+//        return movies;
+//    }
+
 }
 
 
