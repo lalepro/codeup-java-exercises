@@ -3,26 +3,23 @@ package shapes;
 public class ShapesTest {
 
     public static void main(String[] args) {
-        Square square;
-        Rectangle rectangle;
+//        Square square = new Square(1);
+//        Rectangle rectangle = new Rectangle(5, 4);
 
+//    Measurable myShape = new Measurable(); abstract classes cant be instanciated.
 
-        Measurable myShape = new Measurable() {
+        Measurable myShape = new Rectangle(8, 9);
+        System.out.println("Interface (measurable) set to rectangle perimeter. " + myShape.getArea());
 
-            @Override
-            public double getPerimeter() {
-                return 0;
-            }
+        Measurable yourShape = new Square(5);
 
-            @Override
-            public double getArea() {
-                return 0;
-            }
-        };
-
-
+        myShape = new Square(5);
+        System.out.println(myShape.getArea());
 
     }
+
+
+
 }
 
 
