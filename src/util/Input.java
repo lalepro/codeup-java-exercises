@@ -45,30 +45,39 @@ public class Input {
         return yesNo();
     }
 
-    public int getInt(){
-        return scanner.nextInt();
-
-    }
+//    public int getInt(){
+//        return scanner.nextInt();
+//
+//    }
 
     public int getInt(String prompt){
         System.out.println(prompt);
-        return getInt();
+        String intInput = scanner.nextLine();
+    try {
+        return Integer.valueOf(intInput);
+        }catch (NumberFormatException e) {
+            System.out.println("Error- Input number be an Integer!");
+            return getInt(prompt);
+        }
     }
 
 
-    public int getInt(int min, int max) {
-        int userInt = getInt();
+    public int getInt(String prompt, int min, int max) {
+
+        int userInt = getInt(prompt);
+
         if (userInt > max || userInt < min) {
-            return getInt(min, max);
+            return getInt(prompt, min, max);
         } else {
+            System.out.println("Error--Integer must be between" + min + " & " + max);
             return userInt;
         }
     }
 
-    public int getInt(int min, int max, String prompt) {
-        System.out.println(prompt);
-        return getInt(min, max);
-    }
+//    public int getInt(int min, int max, String prompt) {
+//        System.out.println(prompt);
+//        return getInt(min, max);
+//    }
 
 
     public double getDouble() {

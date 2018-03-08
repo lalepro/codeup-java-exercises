@@ -14,11 +14,11 @@ public class InputTest {
 //        System.out.println(userInput.getInt());
 //        System.out.println(userInput.getInt());
 
-        int num1 = uI.getInt(1, 10, "Type a # between 1 & 10: ");
+//        int num1 = uI.getInt(1, 10, "Type a # between 1 & 10: ");
 
-        System.out.print("Your number " +" " + num1);
-//        System.out.println();
-        System.out.println("Do you have another number to input? y/n");
+//        System.out.print("Your number " +" " + num1);
+////        System.out.println();
+//        System.out.println("Do you have another number to input? y/n");
 
         boolean choice = uI.yesNo();
 

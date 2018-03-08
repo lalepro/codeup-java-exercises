@@ -48,7 +48,7 @@ public class MoviesApplication {
                    " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"  +
                    "|   ENTER CATEGORY NUMBER     |\n" +
                    " ----------------------------");
-            userInput = ul.getInt();
+            userInput = ul.getInt("Pick one");
             ul.getNextLine();
             displayMovie(userInput);
         } while (userInput != 0);
