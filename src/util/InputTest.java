@@ -20,30 +20,32 @@ public class InputTest {
 ////        System.out.println();
 //        System.out.println("Do you have another number to input? y/n");
 
-        boolean choice = uI.yesNo();
+//        boolean choice = uI.yesNo();
 
-        System.out.println();
+//        System.out.println();
+//
+//          if (choice){
+//              int num2 = uI.getInt("Please input Any valid integer: ");
+//              System.out.println("You entered: " + " " + num2);
+//          }
+//
+//          if (uI.yesNo("Wanna enter an integer?")){
+//              int num3 = uI.getInt("Please enter any integer");
+//              System.out.println("You entered: " + num3 );
+//          }
+//
+//          double someDouble;
+//          someDouble = uI.getDouble("Please input any number");
+//          System.out.println("You input" + " " + someDouble);
 
-          if (choice){
-              int num2 = uI.getInt("Please input Any valid integer: ");
-              System.out.println("You entered: " + " " + num2);
-          }
+//          double doubleInRange;
+//          doubleInRange = uI.getDouble("Return a value between: ", 1, 11);
 
-          if (uI.yesNo("Wanna enter an integer?")){
-              int num3 = uI.getInt("Please enter any integer");
-              System.out.println("You entered: " + num3 );
-          }
-
-          double someDouble;
-          someDouble = uI.getDouble("Please input any number");
-          System.out.println("You input" + " " + someDouble);
-
-          double doubleInRange;
-          doubleInRange = uI.getDouble(2.2,11.4,"Input a number between " + 2.2 + " & " + 11.4);
-
-        System.out.println(doubleInRange);
+//        System.out.println(doubleInRange);
 //       System.out.println(uI.yesNo("Would you like to continue" + uI.getInt()));
+//        System.out.println(uI.getDouble("Enter a number between ", 5, 15));
 
+//        System.out.println(uI.getInt("Ever a number ", 1, 10));
 
 
     }

@@ -66,6 +66,8 @@ public class GradesApplication {
                 case 3:
                     System.exit(3);
                     break;
+                default:
+                    System.out.println("Not an Option, TRY AGAIN");
 
             }
 

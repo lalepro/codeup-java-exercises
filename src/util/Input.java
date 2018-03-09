@@ -18,7 +18,8 @@ public class Input {
     public String getNextLine(){
         return scanner.nextLine();
     }
-//
+
+
     public String getString(String prompt){
         System.out.println(prompt);
         String userInput = scanner.nextLine();
@@ -26,10 +27,6 @@ public class Input {
 
     }
 
-//    public boolean yesNo(String prompt){
-//        System.out.println(prompt);
-//        if
-//    }
 
     public boolean yesNo() {
         String userInput = getString();
@@ -45,10 +42,6 @@ public class Input {
         return yesNo();
     }
 
-//    public int getInt(){
-//        return scanner.nextInt();
-//
-//    }
 
     public int getInt(String prompt){
         System.out.println(prompt);
@@ -63,9 +56,7 @@ public class Input {
 
 
     public int getInt(String prompt, int min, int max) {
-
         int userInt = getInt(prompt);
-
         if (userInt > max || userInt < min) {
             return getInt(prompt, min, max);
         } else {
@@ -74,37 +65,33 @@ public class Input {
         }
     }
 
-//    public int getInt(int min, int max, String prompt) {
-//        System.out.println(prompt);
-//        return getInt(min, max);
-//    }
 
-
-    public double getDouble() {
-        return scanner.nextDouble();
-    }
-
-    public double getDouble(String prompt){
+    public double getDouble(String prompt) {
         System.out.println(prompt);
-        return getDouble();
-
+        String intDoubleInput = scanner.nextLine();
+        try {
+            return Double.valueOf(intDoubleInput);
+        }catch (NumberFormatException e) {
+            System.out.println("Error- Input number be an Integer!");
+            return getDouble(prompt);
+        }
     }
 
-
-    public double getDouble(double min, double max){
-        double number = getDouble();
-        if (number > max || number < min) {
-            return getDouble(min, max);
+    public double getDouble(String prompt, double min, double max){
+        double number = getDouble(prompt);
+        if (number < min || number > max) {
+            System.out.println("Error--Integer must be between" + min + " & " + max);
+            return getDouble(prompt, min, max);
         } else {
 
             return number;
         }
     }
 
-    public double getDouble(double min, double max, String prompt){
-        System.out.println(prompt);
-        return getDouble(min, max);
-    }
+//    public double getDouble(double min, double max, String prompt){
+//        System.out.println(prompt);
+//        return getDouble(min, max);
+//    }
 
 //    public double getSum(){
 //        return scanner.nextDouble();
@@ -115,8 +102,37 @@ public class Input {
 //        return getSum;
 //    }
 
-    public double getSum(double x, double y) {
-        return x + y;
-    }
+//    public double getSum(double x, double y) {
+//        return x + y;
+//    }
 
 }
+
+
+
+//    public int getInt(int min, int max, String prompt) {
+//        System.out.println(prompt);
+//        return getInt(min, max);
+//    }
+
+
+
+//
+//    public double getDouble(String prompt){
+//        System.out.println(prompt);
+//        return getDouble();
+//
+//    }
+
+
+//    public int getInt(){
+//        return scanner.nextInt();
+//
+//    }
+
+
+//    public boolean yesNo(String prompt){
+//        System.out.println(prompt);
+//        if
+//    }
+
