@@ -1,3 +1,6 @@
 This is written by a program, hell yeah! 
 The Full path of this file is: /Users/lalepro/IdeaProjects/codeup-java-exercises/output.txt
  Hello from my new Directory: null
+
+ 7-10
+ mandy 9045678902

@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class UsingFiles {
@@ -21,6 +22,7 @@ public class UsingFiles {
 //            writer = new FileWriter(output);
 //            BufferedWriter buf = new BufferedWriter(writer);
 //
+//
 //            buf.write("This is written by a program, hell yeah! \n");
 //            buf.write("The Full path of this file is: " + output.getAbsolutePath());
 //            buf.write("\n Hello from my new Directory: " + output.getParentFile());
@@ -33,28 +35,85 @@ public class UsingFiles {
 //            System.err.println("Something went wrong");
 ////            e.printStackTrace();
 //        }
-    String directory = "fooYou";
-    String filename = "output.txt";
-    Path dataDirectory = Paths.get(directory);
-    Path dataFile = Paths.get(directory, filename);
-
-    if(Files.notExists(dataDirectory)){
-        Files.createDirectories(dataDirectory);
-    }
-    if (! Files.exists(dataFile)){
-        Files.createFile(dataFile);
-    }
+//        HashMap<String, Integer> friends = new HashMap<>();
+//    Friend friend = new Friend("Lucy", 2028675309);
+//
+//    String directory = "fooYou";
+//    String filename = "output.txt";
+//    Path dataDirectory = Paths.get(directory);
+//    Path dataFile = Paths.get(directory, filename);
+//
+//    if(Files.notExists(dataDirectory)){
+//        Files.createDirectories(dataDirectory);
+//    }
+//    if (! Files.exists(dataFile)){
+//        Files.createFile(dataFile);
+//    }
 
 //    Path Files.write(Path filepath, List<String> lines [, StandardOpenOption option])
 //        List<String> Files.readAllLines(Path filepath)
+//
+//    List<String> groceryList = Arrays.asList("coffee", "Milk", "sugar");
+//    Files.write(Paths.get("data", "output.txt"), groceryList);
+//        Path path = Paths.get("src", "util", "Input.java");
+//        System.out.println(path);
+//        System.out.println(path.toAbsolutePath());
+//        System.out.println(Files.exists(Paths.get("src", "non-exist.java")));
+//        create a file
+//        Files.createFile(Paths.get("README.md"));
+        ArrayList<String> readmeContents = new ArrayList<>();
+        readmeContents.add("Teddy Java Exercises");
+        readmeContents.add("");
+        readmeContents.add("This is a place to add information");
 
-    List<String> groceryList = Arrays.asList("coffee", "Milk", "sugar");
-    Files.write(Paths.get("data", "output.txt"), groceryList);
+        Files.write(
+                Paths.get("README.md"),
+                readmeContents,
+                StandardOpenOption.APPEND);
 
-//        Reading a file
-        List<String> lines = Files.readAllLines(Paths.get("output.txt"));
+
+        List<String> readme = Files.readAllLines(Paths.get("README.md"));
+        ArrayList<String> lowerCasedReadme = new ArrayList<>();
+
+        for (String line : readme){
+            lowerCasedReadme.add(line.toUpperCase());
+        }
+        Files.write(Paths.get("README-lowercased.md"), lowerCasedReadme);
+//        for (int i = 0; i < bobClass.size(); i++) {
+//            String line = bobClass.get(i);
+//            System.out.printf("%s: %s\n", i + 1, line);
+//        }
+//
+//        System.out.println(bobClass);
+
+////        Reading a file
+//        List<String> lines = Files.readAllLines(Paths.get("output.txt"));
+//
+//        Path groceriesPath = Paths.get("data", "groceries.txt");
+//
+//        List<String> groceryList = Files.readAllLines(groceriesPath);
+//        for (int i = 0; i < groceryList.size(); i += 1) {
+//            System.out.println((i + 1) + ": " + groceryList.get(i));
+//        }
+//
+//
+//        Files.write(
+//                Paths.get("data", "groceries.txt"),
+//                Arrays.listOf("eggs"), // list with one item
+//                StandardOpenOption.APPEND
+//        );
+//        List<String> lines = Files.readAllLines(Paths.get("data", "groceries.txt"));
+//        List<String> newList = new ArrayList<>();
+//        for (String line : lines) {
+//            if (line.equals("milk")) {
+//                newList.add("cream");
+//                continue;
+//            }
+//            newList.add(line);
+//        }
+//        Files.write(newList, lines);
 //        File input = new File("output.txt");
-
+//
 //        try {
 //            FileReader reader = new FileReader(input);
 //            BufferedReader buf = new BufferedReader(reader);
