@@ -1,18 +1,85 @@
 package myStudyCorner;
 
+import util.FileHelper;
+import util.Input;
+
 import java.io.*;
-import java.lang.reflect.Array;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 public class UsingFiles {
+    private static List<String> friends = FileHelper.slurp("src/friends.txt");
+    static Input ul = new Input();
+//    FileHelper fileHelper = new FileHelper();
     public static void main(String[] args) throws IOException {
+        System.out.println("| Welcome to Contacts Manager |\n");
+        contactOption();
+
+//        System.out.println(friend1.getName() + friend1.getNumber());
+//        addContact("jane", "77666582345");
+
+    }
+
+    public static void contactOption() {
+
+    int userInput;
+    do{
+                System.out.println(
+                        " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+                        "| 1 View Contacts             |\n" +
+                        "| 2 Add a new Contact         |\n" +
+                        "| 3 Search a Contact by Name  |\n" +
+                        "| 4 Delete an Existing Contact|\n" +
+                        "| 5 Exit                      |\n" +
+                        "| Enter an option 1,2,3,4,5   |\n" +
+                        " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+        userInput = ul.getInt("Pick an Option");
+        switch (userInput) {
+            case 1:
+                String name = ul.getString("Enter Name: ");
+                String number= ul.getString("Enter Number: ");
+                addContact(name, number);
+                break;
+            case 2:
+                System.out.println();;
+                break;
+            case 3:
+                System.exit(3);
+                break;
+            default:
+                System.out.println("Not an Option, TRY AGAIN");
+
+        }
+
+    }while (userInput != 3) ;
+        System.out.println("Goodbye");
+
+
+
+}
+
+//   create add method with arraylist and spit
+    public static void addContact(String name, String number) {
+        friends = new ArrayList<>();
+        Friend friend = new Friend(name, number);
+        friends.add(friend.getName() + " " + friend.getNumber());
+        FileHelper.spit("src/friends.txt", friends, true);
+//        Friend friend1 = new Friend("Beth", "7037893456");
+//        Friend friend2 = new Friend("Laura", "234789745634");
+}
+
+}
+
+
+
+
+
+
+
+
+
+
 //        File myFile = new File("output.txt");
 
 //Writing a file:
@@ -61,24 +128,24 @@ public class UsingFiles {
 //        System.out.println(Files.exists(Paths.get("src", "non-exist.java")));
 //        create a file
 //        Files.createFile(Paths.get("README.md"));
-        ArrayList<String> readmeContents = new ArrayList<>();
-        readmeContents.add("Teddy Java Exercises");
-        readmeContents.add("");
-        readmeContents.add("This is a place to add information");
-
-        Files.write(
-                Paths.get("README.md"),
-                readmeContents,
-                StandardOpenOption.APPEND);
-
-
-        List<String> readme = Files.readAllLines(Paths.get("README.md"));
-        ArrayList<String> lowerCasedReadme = new ArrayList<>();
-
-        for (String line : readme){
-            lowerCasedReadme.add(line.toUpperCase());
-        }
-        Files.write(Paths.get("README-lowercased.md"), lowerCasedReadme);
+//        ArrayList<String> readmeContents = new ArrayList<>();
+//        readmeContents.add("Teddy Java Exercises");
+//        readmeContents.add("");
+//        readmeContents.add("This is a place to add information");
+//
+//        Files.write(
+//                Paths.get("README.md"),
+//                readmeContents,
+//                StandardOpenOption.APPEND);
+//
+//
+//        List<String> readme = Files.readAllLines(Paths.get("README.md"));
+//        ArrayList<String> lowerCasedReadme = new ArrayList<>();
+//
+//        for (String line : readme){
+//            lowerCasedReadme.add(line.toUpperCase());
+//        }
+//        Files.write(Paths.get("README-lowercased.md"), lowerCasedReadme);
 //        for (int i = 0; i < bobClass.size(); i++) {
 //            String line = bobClass.get(i);
 //            System.out.printf("%s: %s\n", i + 1, line);
@@ -152,5 +219,3 @@ public class UsingFiles {
 //        System.out.println("Full Path: " + fullPath);
 //        System.out.println("Canonical File: " + myFile.getCanonicalFile());
 //        System.out.println("Canonical Path: " + myFile.getCanonicalPath());
-    }
-}

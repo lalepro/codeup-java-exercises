@@ -2,9 +2,9 @@ package myStudyCorner;
 
 public class Friend {
     private String name;
-    private Integer number;
+    private String number;
 
-    public Friend(String name, Integer number) {
+    public Friend(String name, String number) {
         this.name = name;
         this.number = number;
     }
@@ -17,12 +17,17 @@ public class Friend {
         this.name = name;
     }
 
-    public Integer getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
+
+    public static void getAllContactList(String name, String number) {
+
+    }
 }
+

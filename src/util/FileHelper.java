@@ -10,79 +10,103 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.nio.file.Files.readAllLines;
+
 public class FileHelper {
-    private String directory;
-    private String filename;
+
 
     public static void main(String[] args){
         List<String> test = new ArrayList<>();
         test.add("cat");
         test.add("dog");
+        test.add("you do want another");
+        test.add("shark");
+
+
+
 
         System.out.println(slurp("src/grades/GradesApplication.java"));
-        spit("README.md", test);
-        makeExciting("README.md");
+//        spit("README.md", test, true);
+//        makeExciting("README.md");
 //        System.out.println(makeExciting("output.txt"));
+//        spit("cat.txt",test, false);
     }
 
 
-    public FileHelper(String directory, String filename) {
-        this.directory = directory;
-        this.filename = filename;
-    }
+
+
+//    public static FileHelper(String directory, String filename) {
+//        this.directory = directory;
+//        this.filename = filename;
+//    }
 
 
 
 
     public static List<String> slurp(String filename){
-        List<String> result = null;
+        List<String> result = new ArrayList<>();
         try {
-            result = Files.readAllLines(Paths.get(filename));
+            result = readAllLines(Paths.get(filename));
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.printf("Error with SLURP %s: %s\n", filename, e.getMessage());
+            System.exit(1);
+
         }
         return result;
     }
 
-    public static void spit(String filename, List<String> contents){
-        Path path = Paths.get(filename);
-        if(Files.notExists(path)){
-            try {
-                Files.write(path,contents);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public static List<String> prettySlurp(String filepath) {
+        List<String> files = null;
+        try {
+            files = readAllLines(Paths.get(filepath));
+        } catch (IOException e) {
+            System.out.println("ERROR 404 - FILE NOT FOUND");
+            System.exit(1);
         }
-        if(Files.exists(path)){
-            System.out.println("File already exists.");
+        for (int i = 0; i < files.size(); ++i) {
+            String line = files.get(i);
+            System.out.printf("%s: %s\n", i + 1, line);
         }
+        return files;
     }
+
 
     public static void spit(String filename, List<String> contents, boolean append){
         Path path = Paths.get(filename);
-        if(Files.notExists(path)){
             try {
-                Files.write(path,contents, StandardOpenOption.APPEND);
+                if(Files.notExists(path)){
+                    Files.createDirectories(path.getParent());
+                    Files.createFile(path);
+                }
+                if(append) {
+                    Files.write(path, contents, StandardOpenOption.APPEND);
+                }
+                else {
+                    Files.write(path, contents);
+                }
             } catch (IOException e) {
-                e.printStackTrace();
+                System.err.println("Error with SPLIT");
+//                e.printStackTrace();
             }
-        }
-        if(Files.exists(path)){
-            System.out.println("File already exists.");
-        }
     }
+
+    public static void spit(String filename, List<String> contents){
+        spit(filename, contents, false);
+    }
+
+
 
     public static void makeExciting(String filename){
         List<String> contents = slurp(filename);
         for (String content : contents){
-            String capitalizeContent = (content.toUpperCase());
+            String capitalizeContent = (content.toUpperCase() + "!");
             System.out.println(capitalizeContent);
         }
         try {
             Files.write(Paths.get(filename), contents);
         } catch (IOException e) {
-            System.out.println("Error while making something exciting.");
-            e.printStackTrace();
+            System.err.println("Error with MakeExciting");
+//            e.printStackTrace();
         }
     }
 
