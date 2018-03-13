@@ -41,7 +41,7 @@ public class UsingFiles {
                 newContact();
                 break;
             case 3:
-                System.exit(3);
+                searchByName();
                 break;
             case 4:
                 break;
@@ -85,12 +85,36 @@ public class UsingFiles {
 
     }
 
-//    public static void searchByName(List<String> friends) {
-//        for (String contactName : ){
-//            System.out.println(contactName);
-//        }
+//    public static void searchByName(String name) {
 //
-//    }
+//      for(Friend friend : friends){
+//          if(friend.getName().equalsIgnoreCase(name)){
+//              System.out.println(friend.getName());
+//              System.out.println(friend.getNumber());
+//          }
+//      }
+//
+
+
+
+
+
+
+     }
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
