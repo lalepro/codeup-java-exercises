@@ -26,8 +26,6 @@ public class Friend {
     }
 
 
-    public static void getAllContactList(String name, String number) {
 
-    }
 }
 

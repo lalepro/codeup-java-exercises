@@ -6,17 +6,22 @@ import util.Input;
 import java.io.*;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static java.nio.file.Files.readAllLines;
 
 public class UsingFiles {
+
     private static List<String> friends = FileHelper.slurp("src/friends.txt");
     static Input ul = new Input();
+
     public static void main(String[] args) throws IOException {
         System.out.println("| Welcome to Contacts Manager |\n");
         contactOption();
+
     }
+
     public static void contactOption() {
 
     int userInput;
@@ -44,8 +49,10 @@ public class UsingFiles {
                 searchByName();
                 break;
             case 4:
+                deleteContact();
                 break;
             case 5:
+                System.exit(5);
                 break;
             default:
                 System.out.println("Not an Option, TRY AGAIN");
@@ -71,37 +78,44 @@ public class UsingFiles {
     }
 
     public static void viewContacts(){
-        List<String> files = null;
-        try {
-            files = readAllLines(Paths.get("src", "friends.txt"));
-        } catch (IOException e) {
-            System.out.println("ERROR 404 - FILE NOT FOUND");
-            System.exit(1);
-        }
-        for (int i = 0; i < files.size(); ++i) {
-            String line = files.get(i);
-            System.out.printf("%s: %s\n", i + 1, line);
-        }
+       FileHelper.prettySlurp("src/friends.txt");
+   }
 
+    public static void searchByName() {
+        String name = ul.getString("Enter a Name: ");
+
+        List<String> searchedName = new ArrayList<>();
+        for (String friend : friends) {
+            if (friend.contains(name)) {
+                searchedName.add(friend);
+                String output = Arrays.toString(searchedName.toArray()).replace("[", "").replace("]","");
+                System.out.println(output);
+            }
+        }
     }
 
-//    public static void searchByName(String name) {
+
+    public static void deleteContact() {
+      String userInput = ul.getString("Enter Contact to Delete: ");
+      List<String> modifiedList = new ArrayList<>();
+        for (String friend : friends) {
+            if (!friend.contains(userInput)) {
+                modifiedList.add(friend);
+            }
+        }
+        FileHelper.spit("src/friends.txt", modifiedList);
+    }
+
+
+
+
 //
-//      for(Friend friend : friends){
-//          if(friend.getName().equalsIgnoreCase(name)){
-//              System.out.println(friend.getName());
-//              System.out.println(friend.getNumber());
-//          }
-//      }
-//
+//        new arraylist .add contact found in search
+//                use slurp to grab array
 
 
 
 
-
-
-     }
-   
 
 
 
