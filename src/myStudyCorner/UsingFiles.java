@@ -4,41 +4,41 @@ import util.FileHelper;
 import util.Input;
 
 import java.io.*;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.nio.file.Files.readAllLines;
 
 public class UsingFiles {
     private static List<String> friends = FileHelper.slurp("src/friends.txt");
     static Input ul = new Input();
-//    FileHelper fileHelper = new FileHelper();
     public static void main(String[] args) throws IOException {
         System.out.println("| Welcome to Contacts Manager |\n");
         contactOption();
-//        File
     }
     public static void contactOption() {
 
     int userInput;
     do{
-                System.out.println(
-                        " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
-                        "| 1 View Contacts             |\n" +
-                        "| 2 Add a new Contact         |\n" +
-                        "| 3 Search a Contact by Name  |\n" +
-                        "| 4 Delete an Existing Contact|\n" +
-                        "| 5 Exit                      |\n" +
-                        "| Enter an option 1,2,3,4,5   |\n" +
-                        " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
-        userInput = ul.getInt("Pick an Option");
+    System.out.println(
+        " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+        "| 1 View Contacts             |\n" +
+        "| 2 Add a new Contact         |\n" +
+        "| 3 Search a Contact by Name  |\n" +
+        "| 4 Delete an Existing Contact|\n" +
+        "| 5 Exit                      |\n" +
+        " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    userInput = ul.getInt("Pick an Option");
         switch (userInput) {
             case 1:
-                String name = ul.getString("Enter Name: ");
-                String number= ul.getString("Enter Number: ");
-                addContact(name, number);
+                viewContacts();
                 break;
             case 2:
-                System.out.println();;
+//                String name = ul.getString("Enter Name: ");
+//                String number= ul.getString("Enter Number: ");
+//                addContact(name, number);
+                newContact();
                 break;
             case 3:
                 System.exit(3);
@@ -64,6 +64,33 @@ public class UsingFiles {
         FileHelper.spit("src/friends.txt", friends, true);
     }
 
+    public static void newContact(){
+        String enterName = ul.getString("Enter Name: ");
+        String enterNumber = ul.getString("Enter Number: ");
+        addContact(enterName, enterNumber);
+    }
+
+    public static void viewContacts(){
+        List<String> files = null;
+        try {
+            files = readAllLines(Paths.get("src", "friends.txt"));
+        } catch (IOException e) {
+            System.out.println("ERROR 404 - FILE NOT FOUND");
+            System.exit(1);
+        }
+        for (int i = 0; i < files.size(); ++i) {
+            String line = files.get(i);
+            System.out.printf("%s: %s\n", i + 1, line);
+        }
+
+    }
+
+//    public static void searchByName(List<String> friends) {
+//        for (String contactName : ){
+//            System.out.println(contactName);
+//        }
+//
+//    }
 
 }
 
