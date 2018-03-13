@@ -14,12 +14,8 @@ public class UsingFiles {
     public static void main(String[] args) throws IOException {
         System.out.println("| Welcome to Contacts Manager |\n");
         contactOption();
-
-//        System.out.println(friend1.getName() + friend1.getNumber());
-//        addContact("jane", "77666582345");
-
+//        File
     }
-
     public static void contactOption() {
 
     int userInput;
@@ -47,27 +43,27 @@ public class UsingFiles {
             case 3:
                 System.exit(3);
                 break;
+            case 4:
+                break;
+            case 5:
+                break;
             default:
                 System.out.println("Not an Option, TRY AGAIN");
 
         }
 
-    }while (userInput != 3) ;
+    }while (userInput != 5) ;
         System.out.println("Goodbye");
-
-
 
 }
 
-//   create add method with arraylist and spit
     public static void addContact(String name, String number) {
         friends = new ArrayList<>();
         Friend friend = new Friend(name, number);
         friends.add(friend.getName() + " " + friend.getNumber());
         FileHelper.spit("src/friends.txt", friends, true);
-//        Friend friend1 = new Friend("Beth", "7037893456");
-//        Friend friend2 = new Friend("Laura", "234789745634");
-}
+    }
+
 
 }
 
